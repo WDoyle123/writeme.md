@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readme-notifications
+  labels:
+    app: readme-notifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readme-notifications
+  template:
+    metadata:
+      labels:
+        app: readme-notifications
+    spec:
+      containers:
+       - name: readme-notifications
+         image: wdoyle123/readme-notifications
+         envFrom:
+           - configMapRef:
+               name: readme-notifications-configmap
+           - secretRef:
+               name: readme-notifications-secret
+
+

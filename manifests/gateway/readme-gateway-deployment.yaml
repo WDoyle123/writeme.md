@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: readme-gateway
+  name: readme-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readme-gateway
+  template:
+    metadata:
+      labels:
+        app: readme-gateway
+    spec:
+      containers:
+      - image: wdoyle123/readme-gateway
+        name: readme-gateway
+        envFrom:
+          - configMapRef:
+              name: readme-gateway-configmap
+          - secretRef:
+              name: readme-gateway-secret
+        resources: {}
+status: {}

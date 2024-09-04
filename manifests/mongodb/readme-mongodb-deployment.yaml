@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readme-mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readme-mongodb
+  template:
+    metadata:
+      labels:
+        app: readme-mongodb
+    spec:
+      containers:
+      - name: readme-mongodb
+        image: wdoyle123/readme-mongodb
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "mongoadmin"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "secret"
+

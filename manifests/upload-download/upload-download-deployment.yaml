@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: upload-download
+  name: upload-download
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: upload-download
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: upload-download
+    spec:
+      containers:
+      - image: wdoyle123/readme-upload-download
+        name: upload-download
+        ports:
+        -  containerPort: 8080
+        resources: {}
+status: {}

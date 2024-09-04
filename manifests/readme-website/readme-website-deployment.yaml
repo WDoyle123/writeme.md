@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: readme-website
+  name: readme-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readme-website
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: readme-website
+    spec:
+      containers:
+      - image: wdoyle123/readme-website
+        name: readme-website
+        ports:
+        -  containerPort: 4173
+        resources: {}
+status: {}

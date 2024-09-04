@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: readme-notifications-configmap
+data:
+  REPO_QUEUE: "repo"
+  README_QUEUE: "readme"

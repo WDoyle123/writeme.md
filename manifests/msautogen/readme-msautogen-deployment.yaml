@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: readme-msautogen
+  name: readme-msautogen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readme-msautogen
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: readme-msautogen
+    spec:
+      containers:
+      - image: wdoyle123/readme-msautogen
+        name: readme-msautogen
+        envFrom:
+          - configMapRef:
+              name: readme-autogen-configmap
+        resources: {}
+status: {}
