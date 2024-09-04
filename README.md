@@ -1,33 +1,44 @@
-# writeme
+# writeme.md
 
 ## Description
 `writeme.md` is an automated tool designed to generate `README.md` files by analysing the code in your codebase. It leverages the power of `autogen`, a framework that deploys AI agents to create a custom, informative `README.md` based on the specific contents and structure of your project.
 
-Currently it only works on `Python` files.
+The tool is built on a microservice architecture using **Kubernetes** and **Docker** to manage and scale its various components. **RabbitMQ** is used as the message broker for handling task queues, while **MongoDB** stores information about processed requests, including generated `README.md` files and repository data.
+
+Currently, it only works on `Python` files.
+
+WIP - host on GCP
 
 ## Setup
 
-### 1. Update /etc/hosts
+### 1. Git Clone
+Clone the repo:
+```
+git clone git@github.com:WDoyle123/writeme.md.git
+cd writeme.md
+```
+
+### 2. Update /etc/hosts
 Add the following entry to your `/etc/hosts` file:
 ```
 127.0.0.1 writeme.com
 ```
 
-### 2. Gmail Account Configuration
+### 3. Gmail Account Configuration
 To enable notification features, you will need to create a Gmail account and configure it as follows:
 
 - Generate a pass key for your Gmail account.
 - Add this key to the file located at:  
   `manifest/notifications/readme-notifications-secret.yaml`
 
-### 3. Prerequisites
+### 4. Prerequisites
 Ensure you have the following dependencies installed:
 
 - **Minikube**
 - **Docker**
 - **Kubernetes**
 
-### 4. Run Setup Script
+### 5. Run Setup Script
 After verifying the prerequisites, navigate to the `scripts` directory and run the `setup.sh` script to configure the environment:
 
 ```bash
