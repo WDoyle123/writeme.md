@@ -1,5 +1,7 @@
 # writeme.md
 
+![writeme.png](writeme.png)
+
 ## Description
 `writeme.md` is an automated tool designed to generate `README.md` files by analysing the code in your codebase. It leverages the power of `autogen`, a framework that deploys AI agents to create a custom, informative `README.md` based on the specific contents and structure of your project.
 
